@@ -14,3 +14,5 @@ public class TestRunner {
 
 //mvn test
 //mvn test -Dcucumber.options="--tags @AddPlace"
+//generate reports
+//mvn test verify
