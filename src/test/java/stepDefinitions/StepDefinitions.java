@@ -23,7 +23,7 @@ public class StepDefinitions extends Utils{
 	ResponseSpecification resspec;
 	Response response;
 	JsonPath js;
-	String place_id;
+	static String place_id;
 	
 	TestDataBuild data = new TestDataBuild();
 	
@@ -66,12 +66,22 @@ public class StepDefinitions extends Utils{
 	public void verify_place_id_created_maps_to_using(String expectedName, String resource) throws IOException {
 	    // Write code here that turns the phrase above into concrete actions
 		
-		String place_id = getJsonPath(response,"place_id");
+		place_id = getJsonPath(response,"place_id");
 	    res = given().spec(requestSpecification()).queryParam("place_id", place_id);
 	    user_calls_with_http_request(resource,"GET");
 		String actualName = getJsonPath(response,"name");
 		assertEquals(actualName,expectedName);
 	}
+	
+	@Given("DeletePlace Payload")
+	public void delete_place_payload() throws IOException {
+	    // Write code here that turns the phrase above into concrete actions
+	    res = given().spec(requestSpecification()).body(data.deletePlacePayLoad(place_id));
+	}
+	
+	
+	
+	
 	
 	
 	
