@@ -14,5 +14,8 @@ public class TestRunner {
 
 //mvn test
 //mvn test -Dcucumber.options="--tags @AddPlace"
+//mvn test -Dcucumber.filter.tags="@AddPlace" --> In Cucumber 6, property name has changed. Use:
 //generate reports
 //mvn test verify
+//generating reports using tags
+//mvn verify -Dcucumber.filter.tags="@AddPlace"
